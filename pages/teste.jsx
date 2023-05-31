@@ -14,39 +14,42 @@ export default function App() {
     </View>
 
     <ScrollView>
-      <Text style={styles.titulo}>OS N°: </Text>
-      <TextInput
-        style={styles.inputOS}
-      />
+      <Text style={styles.titulo}>CLIENTES</Text>
       <Text>Nome:</Text>
       <TextInput
         style={styles.input}
+        placeholder='Digite seu nome'
+        placeholderTextColor="grey"
       />
-      <Text style={styles.txt}>Cliente::</Text>
+      <Text style={styles.txt}>CPF:</Text>
       <TextInput
         style={styles.input}
+        placeholder='Digite seu CPF'
+        placeholderTextColor="grey"
       />
-      <Text style={styles.txt}>Serviços:</Text>
-      <TextInput
-        style={styles.input}
-      />
-      <Text style={styles.txt}>Endereço de retirada:</Text>
-      <TextInput
-        style={styles.input}
-      />
-      <Text style={styles.txt}>Endereço de entrega:</Text>
-      <TextInput
-        style={styles.input}
-      />
-      <Text style={styles.txt}>Data da retirada:</Text>
+      <Text style={styles.txt}>Data de Nascimento:</Text>
       <TextInput
         style={styles.input}
         placeholder='dd/MM/YYYY'
         placeholderTextColor="grey"
       />
-      <Text style={styles.txt}>Hora da retirada:</Text>
+      <Text style={styles.txt}>Telefone:</Text>
       <TextInput
         style={styles.input}
+        placeholder='Digite seu telefone'
+        placeholderTextColor="grey"
+      />
+      <Text style={styles.txt}>E-mail:</Text>
+      <TextInput
+        style={styles.input}
+        placeholder='Digite seu e-mail'
+        placeholderTextColor="grey"
+      />
+      <Text style={styles.txt}>Endereço:</Text>
+      <TextInput
+        style={styles.input}
+        placeholder='Digite seu endereço'
+        placeholderTextColor="grey"
       />
       <TouchableOpacity style={styles.btnSalvar}>
         <Text>Salvar</Text>
@@ -84,29 +87,18 @@ const styles = StyleSheet.create({
     padding: 10,
 
   },
-  numOs:{
-    width: 100,
-  },
-
   input: {
-    borderColor: '#ccc',
-    marginTop: 5,
+    marginTop: 20,
     width: 350,
     height: 50,
-    borderRadius: 40,
-    borderWidth: 1,
+    borderRadius: 10,
+    borderStartWidth : 1,
+    borderEndWidth : 1,
+    borderTopWidth : 1,
+    boderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth : 1,
     padding: 5,
-    paddingHorizontal: 20,
-  },
-  inputOS: {
-    borderColor: '#ccc',
-    marginTop: 5,
-    width: 100,
-    height: 45,
-    borderRadius: 40,
-    borderWidth: 1,
-    padding: 5,
-    paddingHorizontal: 20,
   },
   txt: {
     marginTop: 20,
@@ -115,13 +107,12 @@ const styles = StyleSheet.create({
   btnSalvar: {
     borderRadius:20,
     backgroundColor: 'blue',
-    width: 200,
-    height: 50,
+    width: 130,
+    height: 40,
     alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'center',
     marginTop: 25,
-    marginLeft: 70,
-    marginBottom: 50,
+    marginLeft: 110,
   }
 });
