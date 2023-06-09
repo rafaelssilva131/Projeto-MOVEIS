@@ -1,127 +1,102 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button, Image, TextInput,TouchableOpacity, Alert, KeyboardAvoidingView,SafeAreaView, ScrollView } from 'react-native';
-import logo from './assets/caminhao.png';
-import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
+import { Text, StyleSheet, Image, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import logo from './caminhao.png';
 
-export default function App() {
+const MENSAGEM_EMAIL = "Digite o seu e-mail.";
+const MENSAGEM_SENHA = "Digite sua senha.";
+
+function Login() {
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    // Realize a lógica de validação de login aqui
+    // Se as credenciais forem válidas, navegue para a tela HomePage
+    navigation.navigate('homePage');
+  };
+
   return (
-    <SafeAreaView style={styles.container}>
-    <View 
-      style={styles.header}>
-      <Image 
-      style={styles.logo} source={logo}
-      />
-    </View>
+    // AULA 08 APRENDER A CONECTAR AS TELAS
 
-    <ScrollView>
-      <Text style={styles.titulo}>OS N°: </Text>
-      <TextInput
-        style={styles.inputOS}
+    <SafeAreaView style={styles.container}>
+
+      <Text
+        style={styles.titulo}>Zé Mudança
+      </Text>
+      <Image
+        style={styles.logo} source={logo}
       />
-      <Text>Nome:</Text>
+      <Text
+        style={styles.texto}>Login:
+      </Text>
       <TextInput
         style={styles.input}
-      />
-      <Text style={styles.txt}>Cliente::</Text>
-      <TextInput
-        style={styles.input}
-      />
-      <Text style={styles.txt}>Serviços:</Text>
-      <TextInput
-        style={styles.input}
-      />
-      <Text style={styles.txt}>Endereço de retirada:</Text>
-      <TextInput
-        style={styles.input}
-      />
-      <Text style={styles.txt}>Endereço de entrega:</Text>
-      <TextInput
-        style={styles.input}
-      />
-      <Text style={styles.txt}>Data da retirada:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder='dd/MM/YYYY'
+        placeholder={MENSAGEM_EMAIL}
         placeholderTextColor="grey"
       />
-      <Text style={styles.txt}>Hora da retirada:</Text>
+      <Text
+        style={styles.texto}>Senha:
+      </Text>
       <TextInput
         style={styles.input}
+        placeholder={MENSAGEM_SENHA}
+        placeholderTextColor="grey"
       />
-      <TouchableOpacity style={styles.btnSalvar}>
-        <Text>Salvar</Text>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>Acessar </Text>
       </TouchableOpacity>
-    </ScrollView>
     </SafeAreaView>
-    );
+
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-  },
-  header: {
     backgroundColor: 'blue',
     alignItems: 'center',
-    width: '100%',
-    paddingTop: 25,
-
-  },  
+    justifyContent: 'center',
+    fontSize: 25,
+  },
+  titulo: {
+    color: '#FFF',
+    textShadowColor: '#FFF',
+    fontSize: 50,
+  },
   logo: {
-    alignItems: 'center',
-    width: 50,
-    height: 50,
+    width: 200,
+    height: 200,
     marginBottom: 20,
     borderRadius: 200,
     backgroundColor: '#FFF',
-    marginTop: 10,
-
+    padding: 15,
   },
-  titulo: { 
+  input: {
+    backgroundColor: '#FFF',
+    width: 350,
+    height: 50,
+    borderRadius: 25,
+    textAlign: 'center',
+    borderColor: "black",
     fontSize: 25,
-    alignItems: 'center',
+  },
+  texto: {
+    fontSize: 30,
     padding: 10,
 
   },
-  numOs:{
-    width: 100,
-  },
-
-  input: {
-    borderColor: '#ccc',
-    marginTop: 5,
-    width: 350,
-    height: 50,
-    borderRadius: 40,
-    borderWidth: 1,
-    padding: 5,
-    paddingHorizontal: 20,
-  },
-  inputOS: {
-    borderColor: '#ccc',
-    marginTop: 5,
-    width: 100,
-    height: 45,
-    borderRadius: 40,
-    borderWidth: 1,
-    padding: 5,
-    paddingHorizontal: 20,
-  },
-  txt: {
-    marginTop: 20,
-    
-  },
-  btnSalvar: {
-    borderRadius:20,
-    backgroundColor: 'blue',
-    width: 200,
-    height: 50,
+  button: {
+    backgroundColor: '#DDDDDD',
+    width: 150,
+    height: 60,
+    borderRadius: 50,
     alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'center',
     marginTop: 25,
-    marginLeft: 70,
-    marginBottom: 50,
+    fontSize: 30,
   }
 });
+
+export default Login;
